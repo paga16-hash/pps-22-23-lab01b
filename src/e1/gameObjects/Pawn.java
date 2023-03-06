@@ -8,4 +8,7 @@ public class Pawn extends AbstractGameObject {
     public Pawn(Pair<Integer, Integer> position, MovementStrategy movementStrategy) {
         super(position, movementStrategy);
     }
+
+    @Override
+    public void move(int row, int col) {}
 }

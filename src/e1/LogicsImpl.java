@@ -46,7 +46,6 @@ public class LogicsImpl implements Logics {
 
 	@Override
 	public boolean hasKnight(int row, int col) {
-		System.out.println("Pos: -> " + this.knight.getPosition());
 		return this.knight.getPosition().equals(new Pair<>(row, col));
 	}
 

@@ -17,7 +17,7 @@ public class GameObjectFactoryImpl implements GameObjectFactory {
                 }
                 int x = row - currentPosition.getX();
                 int y = col - currentPosition.getY();
-                return x == 0 || y == 0 || Math.abs(x) + Math.abs(y) != 3;
+                return x != 0 && y != 0 && Math.abs(x) + Math.abs(y) == 3;
             }
 
             @Override

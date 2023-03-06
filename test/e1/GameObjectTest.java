@@ -5,6 +5,9 @@ import e1.gameObjects.factory.GameObjectFactory;
 import e1.gameObjects.factory.GameObjectFactoryImpl;
 import e1.gameObjects.utils.Pair;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GameObjectTest {
 
@@ -26,4 +29,38 @@ public class GameObjectTest {
         this.pawn = gameObjectFactory.createPawn(initPawnPos);
         this.knight = gameObjectFactory.createKnight(initKnightPos);
     }
+
+    @Test
+    void testInitialPositions() {
+        assertEquals(this.knight.getPosition(), initKnightPos);
+        assertEquals(this.pawn.getPosition(), initPawnPos);
+    }
+
+    @Test
+    void testGameObjectMove() {
+        Pair<Integer, Integer> destination = new Pair<>(initKnightPos.getX() + 1, initKnightPos.getY() + 2);
+        this.knight.move(1, 2);
+        assertEquals(this.knight.getPosition(), destination);
+    }
+
+    @Test
+    void testGameObjectFailingMove() {
+        Pair<Integer, Integer> destination = new Pair<>(initKnightPos.getX() + 2, initKnightPos.getY() + 2);
+        this.knight.move(2, 2);
+        assertEquals(this.knight.getPosition(), initKnightPos);
+    }
+
+    @Test
+    void testGameObjectIllegalMove() {
+        assertThrows(IndexOutOfBoundsException.class,() -> this.knight.move(-1, 0));
+        assertThrows(IndexOutOfBoundsException.class,() -> this.knight.move(0, -1));
+        assertEquals(this.pawn.getPosition(), initPawnPos);
+    }
+
+    @Test
+    void testPawnMovement() {
+        this.pawn.move(2,3);
+        assertEquals(this.pawn.getPosition(), initPawnPos);
+    }
+
 }

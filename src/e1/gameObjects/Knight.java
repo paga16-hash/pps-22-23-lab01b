@@ -16,7 +16,7 @@ public class Knight extends AbstractGameObject {
         }
     }
 
-    void actualMove(int row, int col) {
+    private void actualMove(int row, int col) {
         setPosition(new Pair<>(row, col));
     }
 }

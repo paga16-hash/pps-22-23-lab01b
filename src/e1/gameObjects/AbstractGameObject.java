@@ -4,8 +4,8 @@ import e1.gameObjects.utils.Pair;
 import e1.movement.MovementStrategy;
 
 public class AbstractGameObject implements GameObject {
-    Pair<Integer, Integer> position;
-    MovementStrategy movementStrategy;
+    protected Pair<Integer, Integer> position;
+    protected final MovementStrategy movementStrategy;
 
     public AbstractGameObject(Pair<Integer, Integer> position, MovementStrategy movementStrategy) {
         this.position = position;
@@ -34,7 +34,7 @@ public class AbstractGameObject implements GameObject {
 
     @Override
     public void move(int row, int col) {
-        //setPosition(new Pair<>(row, col));
+        setPosition(new Pair<>(row, col));
     }
 
 }
