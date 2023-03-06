@@ -2,9 +2,10 @@ package e1.movement;
 
 public interface MovementStrategy {
 
-    boolean canMove();
+    boolean canMove(int row, int col);
 
-    void move();
+    void move(int row, int col);
 
     boolean onMove();
+
 }

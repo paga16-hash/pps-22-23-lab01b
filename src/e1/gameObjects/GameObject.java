@@ -1,9 +1,9 @@
 package e1.gameObjects;
 
 import e1.gameObjects.utils.Pair;
+import e1.movement.MovementStrategy;
 
 public interface GameObject {
-    void initPosition(Integer row, Integer col);
     Pair<Integer, Integer> getPosition();
 
     int getX();

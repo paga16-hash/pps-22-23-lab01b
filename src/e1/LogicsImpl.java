@@ -8,11 +8,9 @@ import e1.gameObjects.utils.Pair;
 import java.util.*;
 
 public class LogicsImpl implements Logics {
-	
-	//private final Pair<Integer,Integer> pawn;
-	//private Pair<Integer,Integer> knight;
-	private GameObject knight;
-	private final GameObject pawn;
+
+	private final Knight knight;
+	private final Pawn pawn;
 	private final Random random = new Random();
 	private final int size;
 	 
@@ -30,41 +28,27 @@ public class LogicsImpl implements Logics {
 
 	private final Pair<Integer,Integer> randomEmptyPosition() {
     	Pair<Integer,Integer> pos = new Pair<>(this.random.nextInt(size),this.random.nextInt(size));
-    	// the recursive call below prevents clash with an existing pawn
     	return this.pawn != null && this.pawn.getPosition().equals(pos) ? randomEmptyPosition() : pos;
     }
     
 	@Override
 	public boolean hit(int row, int col) {
-		if(canMove(row, col)){
-			move(row, col);
-			return onMove();
+		//TODO || row >= this.size || col >= this.size
+		if(knight.canMove(row, col)) {
+			knight.move(row, col);
+			return checkVictory();
 		}
 		return false;
 	}
 
-	private boolean onMove() {
+	private boolean checkVictory() {
 		return this.pawn.getPosition().equals(this.knight.getPosition());
 	}
 
-	private void move(int row, int col) {
-		int x = row - this.knight.getX();
-		int y = col - this.knight.getY();
-		if (x != 0 && y != 0 && Math.abs(x) + Math.abs(y) == 3) {
-			this.knight = new Knight(new Pair<>(row, col));
-		}
-	}
-
-	private boolean canMove(int row, int col) {
-		if (row<0 || col<0 || row >= this.size || col >= this.size) {
-			throw new IndexOutOfBoundsException();
-		}
-		return true;
-	}
 
 	@Override
 	public boolean hasKnight(int row, int col) {
-		return this.knight.getPosition().equals(new Pair<>(row,col));
+		return this.knight.getPosition().equals(new Pair<>(row, col));
 	}
 
 	@Override

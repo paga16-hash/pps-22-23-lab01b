@@ -1,17 +1,15 @@
 package e1.gameObjects;
 
 import e1.gameObjects.utils.Pair;
+import e1.movement.MovementStrategy;
 
 public class AbstractGameObject implements GameObject {
     Pair<Integer, Integer> position;
+    MovementStrategy movementStrategy;
 
-    public AbstractGameObject(Pair<Integer, Integer> position) {
+    public AbstractGameObject(Pair<Integer, Integer> position, MovementStrategy movementStrategy) {
         this.position = position;
-    }
-
-    @Override
-    public void initPosition(Integer row, Integer col) {
-        this.position = new Pair<>(row, col);
+        this.movementStrategy = movementStrategy;
     }
 
     @Override
@@ -27,5 +25,18 @@ public class AbstractGameObject implements GameObject {
     @Override
     public int getY() {
         return this.position.getY();
+    }
+
+    public boolean canMove(int row, int col) {
+        return this.movementStrategy.canMove(row, col);
+    }
+
+    public void move(int row, int col) {
+        this.movementStrategy.move(row, col);
+        this.position = new Pair<>(row, col);
+    }
+
+    public boolean onMove() {
+        return this.movementStrategy.onMove();
     }
 }
