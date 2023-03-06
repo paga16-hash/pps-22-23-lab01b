@@ -5,15 +5,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 class LogicsImplTest {
-
     private static final int SIZE = 5;
     private Logics logic;
+    private static final int INIT_X_PAWN = 2;
+    private static final int INIT_Y_PAWN = 1;
+    private static final int INIT_X_KNIGHT = 0;
+    private static final int INIT_Y_KNIGHT = 0;
+
+    Pair<Integer,Integer> initPawnPos = new Pair<>(INIT_X_PAWN, INIT_Y_PAWN);
+    Pair<Integer,Integer> initKnightPos = new Pair<>(INIT_X_KNIGHT, INIT_Y_KNIGHT);
 
     @BeforeEach
     public void initGUI() {
-        Pair<Integer,Integer> pawnPos = new Pair<>(2, 1);
-        Pair<Integer,Integer> knightPos = new Pair<>(0, 0);
-        this.logic = new LogicsImpl(SIZE, pawnPos, knightPos);
+        this.logic = new LogicsImpl(SIZE, initPawnPos, initKnightPos);
     }
 
     @Test
@@ -30,23 +34,23 @@ class LogicsImplTest {
     @Test
     public void testNotAllowedKnightMove() {
         assertFalse(this.logic.hit(2, 2));
-        assertTrue(this.logic.hasKnight(0, 0));
+        assertTrue(this.logic.hasKnight(initKnightPos.getX(), initKnightPos.getY()));
     }
 
     @Test
     public void testIllegalKnightMove() {
         assertThrows(IndexOutOfBoundsException.class, () -> this.logic.hit(-1, 0));
-        assertTrue(this.logic.hasKnight(0, 0));
+        assertTrue(this.logic.hasKnight(initKnightPos.getX(), initKnightPos.getY()));
     }
 
     @Test
     public void testPawnPosition() {
-        assertTrue(this.logic.hasPawn(2, 1));
+        assertTrue(this.logic.hasPawn(initPawnPos.getX(), initPawnPos.getY()));
     }
 
     @Test
     public void testGameVictory() {
-        assertEquals(this.logic.hit(2, 1), this.logic.hasPawn(2, 1));
+        assertEquals(this.logic.hit(2, 1), this.logic.hasPawn(initPawnPos.getX(), initPawnPos.getY()));
     }
 
 }
