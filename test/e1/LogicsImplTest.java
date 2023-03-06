@@ -1,5 +1,8 @@
 package e1;
 
+import e1.gameObjects.GameObject;
+import e1.gameObjects.factory.GameObjectFactory;
+import e1.gameObjects.factory.GameObjectFactoryImpl;
 import e1.gameObjects.utils.Pair;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

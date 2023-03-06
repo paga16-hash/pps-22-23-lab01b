@@ -7,7 +7,7 @@ public interface Logics{
      * 
      * @param row
      * @param col
-     * @return whether the pawn has been hit 
+     * @return whether the pawn has been hit
      */
     boolean hit(int row, int col);
     

@@ -18,6 +18,11 @@ public class AbstractGameObject implements GameObject {
     }
 
     @Override
+    public void setPosition(Pair<Integer, Integer> position) {
+        this.position = position;
+    }
+
+    @Override
     public int getX() {
         return this.position.getX();
     }
@@ -27,16 +32,9 @@ public class AbstractGameObject implements GameObject {
         return this.position.getY();
     }
 
-    public boolean canMove(int row, int col) {
-        return this.movementStrategy.canMove(row, col);
-    }
-
+    @Override
     public void move(int row, int col) {
-        this.movementStrategy.move(row, col);
-        this.position = new Pair<>(row, col);
+        //setPosition(new Pair<>(row, col));
     }
 
-    public boolean onMove() {
-        return this.movementStrategy.onMove();
-    }
 }

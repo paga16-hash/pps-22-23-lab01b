@@ -1,11 +1,11 @@
 package e1.gameObjects;
 
 import e1.gameObjects.utils.Pair;
-import e1.movement.NoMovementStrategy;
+import e1.movement.MovementStrategy;
 
 public class Pawn extends AbstractGameObject {
 
-    public Pawn(Pair<Integer, Integer> position) {
-        super(position, new NoMovementStrategy());
+    public Pawn(Pair<Integer, Integer> position, MovementStrategy movementStrategy) {
+        super(position, movementStrategy);
     }
 }
