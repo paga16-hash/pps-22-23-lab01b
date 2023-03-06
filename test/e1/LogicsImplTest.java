@@ -16,14 +16,37 @@ class LogicsImplTest {
         this.logic = new LogicsImpl(SIZE, pawnPos, knightPos);
     }
 
-    //test to do: easy movement, position out of bound, .
+    @Test
+    public void testKnightPosition() {
+        assertTrue(this.logic.hasKnight(0, 0));
+    }
 
     @Test
-    public void testKnightMove() {
+    public void testAllowedKnightMove() {
         this.logic.hit(2, 1);
         assertTrue(this.logic.hasKnight(2, 1));
     }
 
+    @Test
+    public void testNotAllowedKnightMove() {
+        assertFalse(this.logic.hit(2, 2));
+        assertTrue(this.logic.hasKnight(0, 0));
+    }
 
-  
+    @Test
+    public void testIllegalKnightMove() {
+        assertThrows(IndexOutOfBoundsException.class, () -> this.logic.hit(-1, 0));
+        assertTrue(this.logic.hasKnight(0, 0));
+    }
+
+    @Test
+    public void testPawnPosition() {
+        assertTrue(this.logic.hasPawn(2, 1));
+    }
+
+    @Test
+    public void testGameVictory() {
+        assertEquals(this.logic.hit(2, 1), this.logic.hasPawn(2, 1));
+    }
+
 }
