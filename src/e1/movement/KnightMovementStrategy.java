@@ -1,6 +1,6 @@
 package e1.movement;
 
-public class KnightMovementLogic implements MovementLogic {
+public class KnightMovementStrategy implements MovementStrategy {
     @Override
     public boolean canMove() {
         return false;

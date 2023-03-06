@@ -1,6 +1,6 @@
 package e1.movement;
 
-public interface MovementLogic {
+public interface MovementStrategy {
 
     boolean canMove();
 

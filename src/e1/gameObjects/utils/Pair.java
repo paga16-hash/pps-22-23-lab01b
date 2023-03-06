@@ -1,4 +1,4 @@
-package e1.gameObjects;
+package e1.gameObjects.utils;
 
 /*
  * A standard generic Pair<X,Y>, with getters, hashCode, equals, and toString well implemented. 
