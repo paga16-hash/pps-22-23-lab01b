@@ -5,23 +5,16 @@ public interface Logics{
     /**
      * attempt to move Knight on position row,col, if possible
      * 
-     * @param row
-     * @param col
+     * @param row row
+     * @param col col
      * @return whether the pawn has been hit
      */
     boolean hit(int row, int col);
-    
+
     /**
-     * @param row
-     * @param col
-     * @return whether position row,col has the knight
+     * @param row row
+     * @param col col
+     * @return whether position row,col has the passed GameEntity
      */
-    boolean hasKnight(int row, int col);
-    
-    /**
-     * @param row
-     * @param col
-     * @return whether position row,col has the pawn
-     */
-    boolean hasPawn(int row, int col);
+    boolean hasGameObject(GameEntity gameEntity, int row, int col);
 }

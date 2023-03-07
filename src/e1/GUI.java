@@ -47,8 +47,8 @@ public class GUI extends JFrame {
     
     private void draw() {
     	for (Entry<JButton,Pair<Integer,Integer>> entry: this.buttons.entrySet()) {
-    		String str = logics.hasPawn(entry.getValue().getX(), entry.getValue().getY()) ? "*" :
-    					 logics.hasKnight(entry.getValue().getX(), entry.getValue().getY()) ? "K" : " ";
+    		String str = logics.hasGameObject(GameEntity.PAWN, entry.getValue().getX(), entry.getValue().getY()) ? "*" :
+    					 logics.hasGameObject(GameEntity.KNIGHT, entry.getValue().getX(), entry.getValue().getY()) ? "K" : " ";
     		entry.getKey().setText(str);
     	}
     }
