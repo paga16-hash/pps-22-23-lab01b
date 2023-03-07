@@ -4,6 +4,7 @@ import e1.gameObjects.utils.Pair;
 
 public interface GameObject {
     Pair<Integer, Integer> getPosition();
+
     void setPosition(Pair<Integer, Integer> position);
 
     int getX();

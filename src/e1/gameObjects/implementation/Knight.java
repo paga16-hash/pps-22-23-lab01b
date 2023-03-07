@@ -9,6 +9,7 @@ public class Knight extends AbstractGameObject {
     public Knight(Pair<Integer, Integer> position, MovementStrategy movementStrategy) {
         super(position, movementStrategy);
     }
+
     @Override
     public void move(int row, int col) {
         if (this.movementStrategy.canMove(this.getPosition(), row, col)) {

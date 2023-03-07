@@ -11,5 +11,6 @@ public class Pawn extends AbstractGameObject {
     }
 
     @Override
-    public void move(int row, int col) {}
+    public void move(int row, int col) {
+    }
 }

@@ -2,11 +2,11 @@ package e1;
 
 import e1.gameObjects.GameEntity;
 
-public interface Logics{
-    
+public interface Logics {
+
     /**
      * attempt to move Knight on position row,col, if possible
-     * 
+     *
      * @param row row
      * @param col col
      * @return whether the pawn has been hit

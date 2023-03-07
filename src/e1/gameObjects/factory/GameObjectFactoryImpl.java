@@ -21,7 +21,8 @@ public class GameObjectFactoryImpl implements GameObjectFactory {
             }
 
             @Override
-            public void onMove() {}
+            public void onMove() {
+            }
         });
     }
 
@@ -34,7 +35,8 @@ public class GameObjectFactoryImpl implements GameObjectFactory {
             }
 
             @Override
-            public void onMove() {}
+            public void onMove() {
+            }
         });
     }
 }
