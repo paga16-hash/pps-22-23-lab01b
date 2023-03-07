@@ -1,5 +1,6 @@
 package e1;
 
+import e1.gameObjects.GameEntity;
 import e1.gameObjects.utils.Pair;
 
 import javax.swing.*;

@@ -1,5 +1,6 @@
 package e1;
 
+import e1.gameObjects.GameEntity;
 import e1.gameObjects.GameObject;
 import e1.gameObjects.factory.GameObjectFactory;
 import e1.gameObjects.factory.GameObjectFactoryImpl;
@@ -33,15 +34,6 @@ public class LogicsImpl implements Logics {
         return checkVictory();
     }
 
-    private boolean checkVictory() {
-        return this.pawn.getPosition().equals(this.knight.getPosition());
-    }
-
-    private final Pair<Integer, Integer> randomEmptyPosition() {
-        Pair<Integer, Integer> pos = new Pair<>(this.random.nextInt(size), this.random.nextInt(size));
-        return this.pawn != null && this.pawn.getPosition().equals(pos) ? randomEmptyPosition() : pos;
-    }
-
     @Override
     public boolean hasGameObject(GameEntity gameEntity, int row, int col) {
         switch (gameEntity) {
@@ -55,5 +47,14 @@ public class LogicsImpl implements Logics {
                 return false;
             }
         }
+    }
+
+    private boolean checkVictory() {
+        return this.pawn.getPosition().equals(this.knight.getPosition());
+    }
+
+    private final Pair<Integer, Integer> randomEmptyPosition() {
+        Pair<Integer, Integer> pos = new Pair<>(this.random.nextInt(size), this.random.nextInt(size));
+        return this.pawn != null && this.pawn.getPosition().equals(pos) ? randomEmptyPosition() : pos;
     }
 }

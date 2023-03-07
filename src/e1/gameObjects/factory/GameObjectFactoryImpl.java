@@ -1,10 +1,10 @@
 package e1.gameObjects.factory;
 
 import e1.gameObjects.GameObject;
-import e1.gameObjects.Knight;
-import e1.gameObjects.Pawn;
+import e1.gameObjects.implementation.Knight;
+import e1.gameObjects.implementation.Pawn;
 import e1.gameObjects.utils.Pair;
-import e1.movement.MovementStrategy;
+import e1.gameObjects.movement.MovementStrategy;
 
 public class GameObjectFactoryImpl implements GameObjectFactory {
     @Override

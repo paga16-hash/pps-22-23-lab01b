@@ -1,4 +1,4 @@
-package e1.movement;
+package e1.gameObjects.movement;
 
 import e1.gameObjects.utils.Pair;
 

@@ -1,4 +1,4 @@
-package e1;
+package e1.gameObjects;
 
 public enum GameEntity {
     KNIGHT,

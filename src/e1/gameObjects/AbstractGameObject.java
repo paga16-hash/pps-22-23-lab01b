@@ -1,7 +1,7 @@
 package e1.gameObjects;
 
 import e1.gameObjects.utils.Pair;
-import e1.movement.MovementStrategy;
+import e1.gameObjects.movement.MovementStrategy;
 
 public class AbstractGameObject implements GameObject {
     protected Pair<Integer, Integer> position;

@@ -1,5 +1,7 @@
 package e1;
 
+import e1.gameObjects.GameEntity;
+
 public interface Logics{
     
     /**

@@ -1,7 +1,8 @@
-package e1.gameObjects;
+package e1.gameObjects.implementation;
 
+import e1.gameObjects.AbstractGameObject;
 import e1.gameObjects.utils.Pair;
-import e1.movement.MovementStrategy;
+import e1.gameObjects.movement.MovementStrategy;
 
 public class Knight extends AbstractGameObject {
 
